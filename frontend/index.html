@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <div>
+            <h1>Job Application Tracker</h1>
+            <p>Track, organize and manage your job search.</p>
+        </div>
+
+        <button id="addButton" class="primary-button">
+            + Add Application
+        </button>
+    </header>
+
+    <section class="stats">
+        <div class="stat-card">
+            <span>Total Applications</span>
+            <strong id="totalCount">0</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>Applied</span>
+            <strong id="appliedCount">0</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>Interviews</span>
+            <strong id="interviewCount">0</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>Offers</span>
+            <strong id="offerCount">0</strong>
+        </div>
+    </section>
+
+    <section class="applications-section">
+
+        <div class="section-header">
+            <h2>Applications</h2>
+
+            <div class="controls">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search company or position..."
+                >
+
+                <select id="filterStatus">
+                    <option value="All">All statuses</option>
+                    <option value="Applied">Applied</option>
+                    <option value="Interview">Interview</option>
+                    <option value="Offer">Offer</option>
+                    <option value="Rejected">Rejected</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="applicationsList"></div>
+
+    </section>
+
+</div>
+
+
+<div id="applicationModal" class="modal">
+
+    <div class="modal-content">
+
+        <button id="closeModal" class="close-button">&times;</button>
+
+        <h2 id="modalTitle">Add Application</h2>
+
+        <form id="applicationForm">
+
+            <input type="hidden" id="applicationId">
+
+            <label for="company">Company</label>
+            <input type="text" id="company" required>
+
+            <label for="position">Position</label>
+            <input type="text" id="position" required>
+
+            <label for="status">Status</label>
+            <select id="status">
+                <option value="Applied">Applied</option>
+                <option value="Interview">Interview</option>
+                <option value="Offer">Offer</option>
+                <option value="Rejected">Rejected</option>
+            </select>
+
+            <label for="location">Location</label>
+            <input type="text" id="location">
+
+            <label for="jobUrl">Job URL</label>
+            <input
+                type="url"
+                id="jobUrl"
+                placeholder="https://..."
+            >
+
+            <label for="notes">Notes</label>
+            <textarea
+                id="notes"
+                placeholder="Recruiter, interview details, reminders..."
+            ></textarea>
+
+            <button type="submit" class="primary-button save-button">
+                Save Application
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
