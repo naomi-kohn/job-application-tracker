@@ -1,28 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
     <title>Job Application Tracker</title>
-    <link rel="stylesheet" href="style.css">
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 </head>
+
 
 <body>
 
-<div class="container">
 
-    <header>
-        <div>
-            <h1>Job Application Tracker</h1>
-            <p>Track, organize and manage your job search.</p>
+<div id="authPage" class="auth-page">
+
+    <div class="auth-card">
+
+        <h1>Job Application Tracker</h1>
+
+        <p>
+            Sign in to manage your applications.
+        </p>
+
+
+        <div class="auth-tabs">
+
+            <button
+                id="loginTab"
+                class="auth-tab active"
+            >
+                Login
+            </button>
+
+            <button
+                id="registerTab"
+                class="auth-tab"
+            >
+                Register
+            </button>
+
         </div>
 
-        <button id="addButton" class="primary-button">
-            + Add Application
-        </button>
+
+        <form id="authForm">
+
+            <label>Email</label>
+
+            <input
+                type="email"
+                id="authEmail"
+                required
+            >
+
+
+            <label>Password</label>
+
+            <input
+                type="password"
+                id="authPassword"
+                required
+            >
+
+
+            <button
+                type="submit"
+                class="primary-button save-button"
+                id="authSubmit"
+            >
+                Login
+            </button>
+
+        </form>
+
+
+        <p
+            id="authMessage"
+            class="auth-message"
+        ></p>
+
+    </div>
+
+</div>
+
+
+
+<div
+    id="appPage"
+    class="container"
+    style="display:none;"
+>
+
+    <header>
+
+        <div>
+
+            <h1>
+                Job Application Tracker
+            </h1>
+
+            <p>
+                Track, organize and manage
+                your job search.
+            </p>
+
+        </div>
+
+
+        <div class="header-actions">
+
+            <button
+                id="addButton"
+                class="primary-button"
+            >
+                + Add Application
+            </button>
+
+            <button
+                id="logoutButton"
+                class="secondary-button"
+            >
+                Logout
+            </button>
+
+        </div>
+
     </header>
 
+
     <section class="stats">
+
         <div class="stat-card">
             <span>Total Applications</span>
             <strong id="totalCount">0</strong>
@@ -42,29 +157,55 @@
             <span>Offers</span>
             <strong id="offerCount">0</strong>
         </div>
+
     </section>
+
 
     <section class="applications-section">
 
         <div class="section-header">
+
             <h2>Applications</h2>
 
+
             <div class="controls">
+
                 <input
                     type="text"
                     id="searchInput"
-                    placeholder="Search company or position..."
+                    placeholder=
+                    "Search company or position..."
                 >
 
+
                 <select id="filterStatus">
-                    <option value="All">All statuses</option>
-                    <option value="Applied">Applied</option>
-                    <option value="Interview">Interview</option>
-                    <option value="Offer">Offer</option>
-                    <option value="Rejected">Rejected</option>
+
+                    <option value="All">
+                        All statuses
+                    </option>
+
+                    <option value="Applied">
+                        Applied
+                    </option>
+
+                    <option value="Interview">
+                        Interview
+                    </option>
+
+                    <option value="Offer">
+                        Offer
+                    </option>
+
+                    <option value="Rejected">
+                        Rejected
+                    </option>
+
                 </select>
+
             </div>
+
         </div>
+
 
         <div id="applicationsList"></div>
 
@@ -73,49 +214,118 @@
 </div>
 
 
-<div id="applicationModal" class="modal">
+
+<div
+    id="applicationModal"
+    class="modal"
+>
 
     <div class="modal-content">
 
-        <button id="closeModal" class="close-button">&times;</button>
+        <button
+            id="closeModal"
+            class="close-button"
+        >
+            &times;
+        </button>
 
-        <h2 id="modalTitle">Add Application</h2>
+
+        <h2 id="modalTitle">
+            Add Application
+        </h2>
+
 
         <form id="applicationForm">
 
-            <input type="hidden" id="applicationId">
+            <input
+                type="hidden"
+                id="applicationId"
+            >
 
-            <label for="company">Company</label>
-            <input type="text" id="company" required>
 
-            <label for="position">Position</label>
-            <input type="text" id="position" required>
+            <label for="company">
+                Company
+            </label>
 
-            <label for="status">Status</label>
+            <input
+                type="text"
+                id="company"
+                required
+            >
+
+
+            <label for="position">
+                Position
+            </label>
+
+            <input
+                type="text"
+                id="position"
+                required
+            >
+
+
+            <label for="status">
+                Status
+            </label>
+
             <select id="status">
-                <option value="Applied">Applied</option>
-                <option value="Interview">Interview</option>
-                <option value="Offer">Offer</option>
-                <option value="Rejected">Rejected</option>
+
+                <option value="Applied">
+                    Applied
+                </option>
+
+                <option value="Interview">
+                    Interview
+                </option>
+
+                <option value="Offer">
+                    Offer
+                </option>
+
+                <option value="Rejected">
+                    Rejected
+                </option>
+
             </select>
 
-            <label for="location">Location</label>
-            <input type="text" id="location">
 
-            <label for="jobUrl">Job URL</label>
+            <label for="location">
+                Location
+            </label>
+
+            <input
+                type="text"
+                id="location"
+            >
+
+
+            <label for="jobUrl">
+                Job URL
+            </label>
+
             <input
                 type="url"
                 id="jobUrl"
                 placeholder="https://..."
             >
 
-            <label for="notes">Notes</label>
+
+            <label for="notes">
+                Notes
+            </label>
+
             <textarea
                 id="notes"
-                placeholder="Recruiter, interview details, reminders..."
+                placeholder=
+                "Recruiter, interview details, reminders..."
             ></textarea>
 
-            <button type="submit" class="primary-button save-button">
+
+            <button
+                type="submit"
+                class="primary-button save-button"
+            >
                 Save Application
             </button>
 
@@ -124,6 +334,7 @@
     </div>
 
 </div>
+
 
 <script src="app.js"></script>
 
