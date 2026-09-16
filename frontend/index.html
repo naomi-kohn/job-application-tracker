@@ -17,9 +17,12 @@
     >
 </head>
 
-
 <body>
 
+
+<!-- ===================================================== -->
+<!-- AUTHENTICATION PAGE -->
+<!-- ===================================================== -->
 
 <div id="authPage" class="auth-page">
 
@@ -35,6 +38,7 @@
         <div class="auth-tabs">
 
             <button
+                type="button"
                 id="loginTab"
                 class="auth-tab active"
             >
@@ -42,6 +46,7 @@
             </button>
 
             <button
+                type="button"
                 id="registerTab"
                 class="auth-tab"
             >
@@ -53,20 +58,26 @@
 
         <form id="authForm">
 
-            <label>Email</label>
+            <label for="authEmail">
+                Email
+            </label>
 
             <input
                 type="email"
                 id="authEmail"
+                autocomplete="email"
                 required
             >
 
 
-            <label>Password</label>
+            <label for="authPassword">
+                Password
+            </label>
 
             <input
                 type="password"
                 id="authPassword"
+                autocomplete="current-password"
                 required
             >
 
@@ -92,6 +103,9 @@
 </div>
 
 
+<!-- ===================================================== -->
+<!-- MAIN APPLICATION -->
+<!-- ===================================================== -->
 
 <div
     id="appPage"
@@ -118,6 +132,7 @@
         <div class="header-actions">
 
             <button
+                type="button"
                 id="addButton"
                 class="primary-button"
             >
@@ -125,6 +140,7 @@
             </button>
 
             <button
+                type="button"
                 id="logoutButton"
                 class="secondary-button"
             >
@@ -136,36 +152,77 @@
     </header>
 
 
+    <!-- ================================================= -->
+    <!-- STATISTICS -->
+    <!-- ================================================= -->
+
     <section class="stats">
 
         <div class="stat-card">
-            <span>Total Applications</span>
-            <strong id="totalCount">0</strong>
+
+            <span>
+                Total Applications
+            </span>
+
+            <strong id="totalCount">
+                0
+            </strong>
+
         </div>
 
-        <div class="stat-card">
-            <span>Applied</span>
-            <strong id="appliedCount">0</strong>
-        </div>
 
         <div class="stat-card">
-            <span>Interviews</span>
-            <strong id="interviewCount">0</strong>
+
+            <span>
+                Applied
+            </span>
+
+            <strong id="appliedCount">
+                0
+            </strong>
+
         </div>
 
+
         <div class="stat-card">
-            <span>Offers</span>
-            <strong id="offerCount">0</strong>
+
+            <span>
+                Interviews
+            </span>
+
+            <strong id="interviewCount">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>
+                Offers
+            </span>
+
+            <strong id="offerCount">
+                0
+            </strong>
+
         </div>
 
     </section>
 
 
+    <!-- ================================================= -->
+    <!-- APPLICATIONS -->
+    <!-- ================================================= -->
+
     <section class="applications-section">
 
         <div class="section-header">
 
-            <h2>Applications</h2>
+            <h2>
+                Applications
+            </h2>
 
 
             <div class="controls">
@@ -173,8 +230,7 @@
                 <input
                     type="text"
                     id="searchInput"
-                    placeholder=
-                    "Search company or position..."
+                    placeholder="Search company or position..."
                 >
 
 
@@ -207,13 +263,17 @@
         </div>
 
 
-        <div id="applicationsList"></div>
+        <div id="applicationsList">
+        </div>
 
     </section>
 
 </div>
 
 
+<!-- ===================================================== -->
+<!-- APPLICATION MODAL -->
+<!-- ===================================================== -->
 
 <div
     id="applicationModal"
@@ -223,6 +283,7 @@
     <div class="modal-content">
 
         <button
+            type="button"
             id="closeModal"
             class="close-button"
         >
@@ -317,8 +378,7 @@
 
             <textarea
                 id="notes"
-                placeholder=
-                "Recruiter, interview details, reminders..."
+                placeholder="Recruiter, interview details, reminders..."
             ></textarea>
 
 
@@ -336,7 +396,13 @@
 </div>
 
 
-<script src="app.js"></script>
+<!-- ===================================================== -->
+<!-- JAVASCRIPT -->
+<!-- v=2 forces the browser to load the updated app.js -->
+<!-- ===================================================== -->
+
+<script src="app.js?v=2"></script>
 
 </body>
+
 </html>
